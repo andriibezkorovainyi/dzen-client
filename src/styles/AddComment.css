@@ -1,0 +1,142 @@
+.add-comment-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    padding: 20px;
+    margin: 0 auto 15px;
+
+    border: 1px solid #E1E7ED;
+    border-radius: 20px;
+}
+
+.add-comment-input-text {
+    font-family: var(--font-family);
+
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #E1E7ED;
+    border-radius: 10px;
+    resize: none;
+}
+
+.add-comment-input-text:focus {
+    outline: none;
+}
+
+.input-file {
+    display: none;
+}
+
+.add-comment-input-file {
+    height: max-content;
+    font-family: var(--font-family);
+    background-color: #F6F6F7;
+    font-size: 8px;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+}
+
+.add-comment-input-file:hover {
+    border-color: #646cff;
+}
+
+.add-comment-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.add-comment-action-button {
+    height: min-content;
+    background-color: #F6F6F7;
+    color: #333;
+    font-family: var(--font-family);
+}
+
+.add-comment-submit-button:hover {
+    background-color: #E1E7ED;
+}
+
+.add-comment-files {
+    align-self: center;
+    display: flex;
+}
+
+.add-comment-remove-file {
+    height: max-content;
+    width: max-content;
+    line-height: 7px;
+    padding: 2px;
+}
+
+.add-comment-captcha-container {
+    width: max-content;
+    margin: 0 auto 10px;
+}
+
+.add-comment-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 5px;
+}
+
+.add-comment-tag-button {
+    background-color: #F6F6F7;
+    color: #333;
+    font-family: var(--font-family);
+    font-size: 8px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-comment-tag-button:hover {
+    background-color: #E1E7ED;
+}
+
+.add-comment-tag-image {
+    height: 10px;
+    width: 10px;
+}
+
+.add-comment-error-messages {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: red;
+    font-size: 12px;
+}
+
+.body-scroll-lock {
+    overflow: hidden;
+}
+
+.add-comment-text-file-info {
+    font-size: small;
+    background-color: transparent;
+
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.add-comment-text-file-info:hover {
+    border: 1px solid transparent;
+    color: gray;
+}

@@ -1,0 +1,11 @@
+.preview-image {
+    width: 40px;
+    padding: 4px 4px 0;
+    margin: 0;
+}
+
+.preview-image-button {
+    display: block;
+    padding: 0;
+    background-color: transparent;
+}

@@ -1,0 +1,18 @@
+.preview-comment-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-comment {
+    width: 70vw;
+    min-height: max-content;
+    background-color: white;
+}

@@ -1,0 +1,21 @@
+.app-container {
+    margin: 0 auto;
+    width: 70vw;
+}
+
+.app {
+    padding: 20px 0;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.app-comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
