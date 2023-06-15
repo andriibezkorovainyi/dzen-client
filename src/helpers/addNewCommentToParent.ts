@@ -9,7 +9,7 @@ export const addNewCommentToParent = (parentId: number, newComment: CommentServe
         if (comment.id === parentId) {
             return {
                 ...comment,
-                childrenCount: comment.childrenCount ? comment.childrenCount + 1 : 1,
+                _count: {children: comment._count.children ? comment._count.children + 1 : 1},
                 children: [...comment.children, newComment],
             };
         } else if (comment.children.length > 0) {
