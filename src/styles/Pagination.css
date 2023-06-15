@@ -1,0 +1,11 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.active {
+    background-color: #646cff;
+    cursor: initial;
+}

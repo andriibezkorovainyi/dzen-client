@@ -1,0 +1,12 @@
+.sorting {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto 20px;
+    gap: 20px;
+}
+
+.sorting-title {
+    font-family: var(--font-family);
+}

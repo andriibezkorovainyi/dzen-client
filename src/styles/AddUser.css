@@ -1,0 +1,47 @@
+.add-user-container {
+    max-width: max-content;
+    margin: 0 auto 20px;
+    border: 1px solid #E1E7ED;
+    border-radius: 5px;
+}
+
+.add-user-buttons {
+    display: flex;
+    margin-bottom: 20px;
+    gap: 5px;
+    justify-content: flex-end;
+}
+
+.add-user-login {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    padding: 20px;
+}
+
+.add-user-input {
+    font-family: var(--font-family);
+    font-size: 14px;
+    border: 1px solid #E1E7ED;
+    border-radius: 5px;
+}
+
+.add-user-input:focus {
+    outline: none;
+    border-color: #646cff;
+}
+
+.add-user-error-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-family: var(--font-family);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: red;
+    font-size: 12px;
+}
