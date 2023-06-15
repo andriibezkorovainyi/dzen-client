@@ -5,26 +5,16 @@ import {User} from "./User";
 import {useWebSocketContext} from "../hooks/useWebSocketContext";
 import "../styles/Comment.css"
 import {PreviewImage} from "./PreviewImage";
-// import axios from "axios";
 import {openBase64FileInNewTab} from "../helpers/openBase64InNewTab";
-// import {GetObjectCommand, GetObjectCommandOutput, S3} from '@aws-sdk/client-s3'
 import axios from "axios";
 
 interface Props {
     comment: CommentServerPayload
 }
 
-// const s3Client = new S3({
-//     region: import.meta.env.VITE_AWS_REGION,
-//     credentials: {
-//         accessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
-//         secretAccessKey: import.meta.env.VITE_AWS_SECRET_ACCESS_KEY
-//     }
-// });
-
 export const Comment: FC<Props> = ({comment}) => {
     const [reply, setReply] = useState<boolean>(false)
-    const {user, sendMessage,} = useWebSocketContext();
+    const {user, sendMessage, setIsLoading} = useWebSocketContext();
     const [seeAnswers, setSeeAnswers] = useState<boolean>(false);
     const [uploadedFile, setUploadedFile] = useState<string>();
 
@@ -73,6 +63,7 @@ export const Comment: FC<Props> = ({comment}) => {
 
     const handleUploadFile = async () => {
         try {
+            setIsLoading(true);
             const file = await axios.get(`${import.meta.env.VITE_HTTP}` + '/file' + fileUrl, {
                 headers: {
                     'Content-Type': 'text/plain'
@@ -82,19 +73,9 @@ export const Comment: FC<Props> = ({comment}) => {
             setUploadedFile(file.data);
         } catch (e) {
             console.log(e);
+        } finally {
+            setIsLoading(false);
         }
-
-        // const getObjectParams = {
-        //     Bucket: 'dzen-bucket',
-        //     Key: fileName,
-        // }
-        // const response: GetObjectCommandOutput = await s3Client.send(new GetObjectCommand(getObjectParams));
-        // const responseString = await response.Body?.transformToString('base64');
-        // // ArrayBuffer
-        // // const blob = new Blob([arrayBuffer], {type: response.ContentType});
-        //
-        //
-        // const dataUrl = `data:${response.ContentType};base64,${responseString}`;
     }
 
     return (
