@@ -22,10 +22,12 @@ export const Comment: FC<Props> = ({comment}) => {
         userName,
         avatarUrl,
         _count,
-        children,
+        children = [],
         createdAt,
         file
     } = comment as CommentServerPayload;
+
+    console.log(_count.children)
 
 
     const {
