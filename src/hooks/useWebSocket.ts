@@ -40,40 +40,48 @@ const useWebSocket = (url: string) => {
     };
 
     useEffect(() => {
-        socketRef.current = new WebSocket(url);
+        const connectWebSocket = () => {
+            socketRef.current = new WebSocket(url);
 
 
-        socketRef.current.onopen = () => {
-            console.log('WebSocket is connected');
+            socketRef.current.onopen = () => {
+                console.log('WebSocket is connected');
 
-            setIsLoading(true);
+                if (comments.length > 0) return;
 
-            const initialMessage: Message = {
-                event: 'getComments',
-                data: {}
+                setIsLoading(true);
+
+                const initialMessage: Message = {
+                    event: 'getComments',
+                    data: {}
+                };
+
+                sendMessage(initialMessage);
+                getCommentsCount();
             };
 
-            sendMessage(initialMessage);
-            getCommentsCount();
-        };
+            socketRef.current.onmessage = (message) => {
+                const messageData = JSON.parse(message.data) as ServerPayload;
 
-        socketRef.current.onmessage = (message) => {
-            const messageData = JSON.parse(message.data) as ServerPayload;
+                if (messageData.event !== 'getCommentsCount') {
+                    setIsLoading(false);
+                }
 
-            if (messageData.event !== 'getCommentsCount') {
-                setIsLoading(false);
-            }
+                setReceivedMessage(messageData);
+            };
 
-            setReceivedMessage(messageData);
-        };
+            socketRef.current.onclose = () => {
+                console.log('WebSocket is closed');
 
-        socketRef.current.onclose = () => {
-            console.log('WebSocket is closed');
-        };
+                setTimeout(connectWebSocket, 1000);
+            };
 
-        socketRef.current.onerror = (error) => {
-            console.log('WebSocket error: ', error);
-        };
+            socketRef.current.onerror = (error) => {
+                console.log('WebSocket error: ', error);
+            };
+        }
+
+        connectWebSocket();
 
         return () => {
             if (socketRef.current) {
@@ -82,7 +90,7 @@ const useWebSocket = (url: string) => {
             }
         };
 
-    }, [])
+    }, []);
 
     useEffect(() => {
         console.log('receivedMessage: ', receivedMessage);
