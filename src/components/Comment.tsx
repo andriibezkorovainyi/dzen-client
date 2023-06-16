@@ -60,7 +60,7 @@ export const Comment: FC<Props> = ({comment}) => {
             setIsLoading(true);
             const file = await axios.get(`${import.meta.env.VITE_HTTP}` + '/file' + fileUrl, {
                 headers: {
-                    'Content-Type': 'text/plain'
+                    'Content-Type': '*'
                 }
             });
 
