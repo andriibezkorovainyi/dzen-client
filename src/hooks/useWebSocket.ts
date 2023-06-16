@@ -47,7 +47,7 @@ const useWebSocket = (url: string) => {
             socketRef.current.onopen = () => {
                 console.log('WebSocket is connected');
 
-                if (comments.length > 0) return;
+                if (commentsCount > 0) return;
 
                 setIsLoading(true);
 
@@ -73,7 +73,7 @@ const useWebSocket = (url: string) => {
             socketRef.current.onclose = () => {
                 console.log('WebSocket is closed');
 
-                setTimeout(connectWebSocket, 1000);
+                connectWebSocket();
             };
 
             socketRef.current.onerror = (error) => {

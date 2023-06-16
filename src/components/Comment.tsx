@@ -118,7 +118,7 @@ export const Comment: FC<Props> = ({comment}) => {
                             >
                                 <img
                                     className={"comment-txt-icon"}
-                                    src={"/public/txt-icon.svg"}
+                                    src={"/txt-icon.svg"}
                                     alt={"txt icon"}>
                                 </img>
                                 <span
