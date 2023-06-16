@@ -19,13 +19,10 @@ const useWebSocket = (url: string) => {
         setCommentsCount,
     } = useMainState();
 
-    console.log('useWebSocket:', user);
-
     const sendMessage = (message: Message) => {
         if (message.event !== 'getCommentsCount') {
             setIsLoading(true);
         }
-        console.log('sendMessage', message);
 
         socketRef.current?.send(JSON.stringify(message));
     };
@@ -45,7 +42,6 @@ const useWebSocket = (url: string) => {
 
 
             socketRef.current.onopen = () => {
-                console.log('WebSocket is connected');
 
                 if (commentsCount > 0) return;
 
@@ -71,8 +67,6 @@ const useWebSocket = (url: string) => {
             };
 
             socketRef.current.onclose = () => {
-                console.log('WebSocket is closed');
-
                 connectWebSocket();
             };
 
@@ -93,8 +87,6 @@ const useWebSocket = (url: string) => {
     }, []);
 
     useEffect(() => {
-        console.log('receivedMessage: ', receivedMessage);
-
         if (receivedMessage) {
             const {event, data} = receivedMessage as ServerPayload;
 
@@ -142,12 +134,10 @@ const useWebSocket = (url: string) => {
                     break;
 
                 case 'getCommentsCount':
-                    console.log('getCommentsCount', data);
                     setCommentsCount(data as number);
                     break;
 
                 case 'createCommentError':
-                    console.log('createCommentError', data);
                     break;
 
                 default:

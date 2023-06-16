@@ -27,8 +27,6 @@ export const Comment: FC<Props> = ({comment}) => {
         file
     } = comment as CommentServerPayload;
 
-    console.log(_count.children)
-
 
     const {
         name: fileName,
@@ -36,10 +34,6 @@ export const Comment: FC<Props> = ({comment}) => {
         type: fileType,
         size: fileSize
     } = file as FileServerPayload || {};
-
-    if (file?.id === 9) {
-        console.log(uploadedFile);
-    }
 
     const dateObject = new Date(createdAt);
     const date = dateObject.toLocaleDateString();
