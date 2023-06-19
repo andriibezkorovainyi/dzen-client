@@ -1,13 +1,13 @@
 # DZEN-CLIENT
 
-Dzen-client is a front-end part of SPA comments application. It provides a way to send and receive messages of all the
-users in real-time.
+Dzen-client is a front-end part of SPA commentaries application.
+It gives a user interface to interact with an App.
 
 [DEMO](https://dzen-client.netlify.app/)
 
 ## Back-end:
- - [dzen-api](https://github.com/andriibezkorovainyi/dzen-api) - responsible for maintaining WebSocket connection with the client, providing necessary app functionality
- - [dzen-http-server](https://github.com/andriibezkorovainyi/dzen-http-server) - responsible for maintaining HTTP connection with the client
+ - [dzen-api](https://github.com/andriibezkorovainyi/dzen-api) - responsible for maintaining a WebSocket connection with the client, commentaries service
+ - [dzen-http-server](https://github.com/andriibezkorovainyi/dzen-http-server) - establishing an HTTP connection, providing users, files, and captcha services
 
 ## Table of Contents
 
